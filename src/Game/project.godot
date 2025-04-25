@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="godot-pixel-art-template"
+config/name="CatTopDown2D"
 run/main_scene="uid://ddeqm380rgljy"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://bdohtig5mdd7l"
@@ -21,12 +21,17 @@ window/stretch/mode="viewport"
 
 [dotnet]
 
-project/assembly_name="GameTemplate"
+project/assembly_name="CatTopDown2D"
 project/solution_directory="../.."
 
 [editor]
 
 naming/scene_name_casing=1
+
+[filesystem]
+
+import/fbx2gltf/enabled=false
+import/blender/enabled=false
 
 [rendering]
 

@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace GameTemplate;
+namespace CatTopDown2D;
 
 public partial class Main: Node2D
 {
