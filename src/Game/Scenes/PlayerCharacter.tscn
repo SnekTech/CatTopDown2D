@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl5nmytr8md5u"]
+[gd_scene load_steps=5 format=3 uid="uid://cl5nmytr8md5u"]
+
+[ext_resource type="Script" uid="uid://li5ggmiqtx6j" path="res://Scripts/PlayerCharacter.cs" id="1_v7sut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plupy"]
 radius = 6.0
@@ -16,6 +18,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_v7sut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_plupy")
