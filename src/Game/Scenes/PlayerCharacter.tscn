@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl5nmytr8md5u"]
+[gd_scene load_steps=11 format=3 uid="uid://cl5nmytr8md5u"]
 
 [ext_resource type="Script" uid="uid://li5ggmiqtx6j" path="res://Scripts/PlayerCharacter.cs" id="1_v7sut"]
 
@@ -17,6 +17,41 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v7sut"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_5gnj7"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2getf"]
+gradient = SubResource("Gradient_5gnj7")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_v7sut"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10066, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5gnj7"]
+curve = SubResource("Curve_v7sut")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7sut"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 3.5
+emission_ring_inner_radius = 2.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 0.47451, 0.247059)
+alpha_curve = SubResource("CurveTexture_5gnj7")
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_v7sut")
@@ -27,3 +62,11 @@ shape = SubResource("CircleShape2D_plupy")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = SubResource("GradientTexture2D_5gnj7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_v7sut")
+texture = SubResource("GradientTexture2D_2getf")
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_v7sut")
