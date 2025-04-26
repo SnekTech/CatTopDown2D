@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://7kgyfivekj6s"]
+[gd_scene load_steps=6 format=3 uid="uid://7kgyfivekj6s"]
 
 [ext_resource type="Script" uid="uid://qvyeaq34dsws" path="res://Scripts/MovableObject.cs" id="1_f4luc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8atk"]
 size = Vector2(8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f4luc"]
+polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="Gradient" id="Gradient_f4luc"]
 
@@ -22,6 +25,10 @@ script = ExtResource("1_f4luc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f8atk")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_f4luc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
 texture_filter = 1
 texture = SubResource("GradientTexture2D_2rlbc")
