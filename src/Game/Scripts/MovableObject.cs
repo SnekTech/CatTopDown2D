@@ -22,6 +22,11 @@ public partial class MovableObject : CharacterBody2D
                 ResolveCollisions();
             }
         }
+        else
+        {
+            Position = Position.Round();
+            Velocity = Vector2.Zero;
+        }
     }
 
     public void ApplyImpact(Vector2 impactVelocity)

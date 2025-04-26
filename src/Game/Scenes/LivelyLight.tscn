@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://3t1da58xljgj"]
+
+[ext_resource type="Script" uid="uid://vrh3al4ebvpf" path="res://Scripts/LivelyLight.cs" id="1_p0pi0"]
+
+[sub_resource type="Gradient" id="Gradient_qumfl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e7idi"]
+gradient = SubResource("Gradient_qumfl")
+width = 192
+height = 192
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="LivelyLight" type="Node2D"]
+script = ExtResource("1_p0pi0")
+
+[node name="light1" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_e7idi")
+
+[node name="light2" type="PointLight2D" parent="."]
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_e7idi")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl5nmytr8md5u"]
+[gd_scene load_steps=13 format=3 uid="uid://cl5nmytr8md5u"]
 
 [ext_resource type="Script" uid="uid://li5ggmiqtx6j" path="res://Scripts/PlayerCharacter.cs" id="1_v7sut"]
+[ext_resource type="PackedScene" uid="uid://3t1da58xljgj" path="res://Scenes/LivelyLight.tscn" id="2_5gnj7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plupy"]
 radius = 6.0
@@ -58,6 +59,8 @@ alpha_curve = SubResource("CurveTexture_5gnj7")
 [node name="PlayerCharacter" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_v7sut")
+
+[node name="LivelyLight" parent="." instance=ExtResource("2_5gnj7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_plupy")
