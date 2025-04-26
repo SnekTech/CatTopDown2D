@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://ddeqm380rgljy"]
+[gd_scene load_steps=5 format=4 uid="uid://ddeqm380rgljy"]
 
 [ext_resource type="Script" uid="uid://bac43f1ymlhio" path="res://Scripts/Main.cs" id="1_7yn8b"]
 [ext_resource type="TileSet" uid="uid://8iuholo8imps" path="res://tile_set.tres" id="2_etk83"]
 [ext_resource type="PackedScene" uid="uid://cl5nmytr8md5u" path="res://Scenes/PlayerCharacter.tscn" id="3_etk83"]
+[ext_resource type="PackedScene" uid="uid://7kgyfivekj6s" path="res://Scenes/MovableObject.tscn" id="4_qumfl"]
 
 [node name="Map" type="Node"]
 script = ExtResource("1_7yn8b")
@@ -14,3 +15,6 @@ tile_set = ExtResource("2_etk83")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_etk83")]
 position = Vector2(136, 88)
+
+[node name="MovableObject" parent="." instance=ExtResource("4_qumfl")]
+position = Vector2(146, 110)

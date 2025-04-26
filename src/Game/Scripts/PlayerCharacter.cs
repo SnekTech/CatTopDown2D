@@ -9,12 +9,29 @@ public partial class PlayerCharacter : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         GetPlayerInput();
-        MoveAndSlide();
+
+        var hitSome = MoveAndSlide();
+        if (hitSome)
+        {
+            ResolveCollisions();
+        }
     }
 
     private void GetPlayerInput()
     {
         var vector = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
         Velocity = vector * Speed;
+    }
+
+    private void ResolveCollisions()
+    {
+        for (var i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            var collision = GetSlideCollision(i);
+            if (collision.GetCollider() is RigidBody2D body)
+            {
+                body.ApplyForce(-100 * collision.GetNormal());
+            }
+        }
     }
 }
