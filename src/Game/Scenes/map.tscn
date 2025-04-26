@@ -18,3 +18,9 @@ position = Vector2(136, 88)
 
 [node name="MovableObject" parent="." instance=ExtResource("4_qumfl")]
 position = Vector2(146, 110)
+
+[node name="MovableObject2" parent="." instance=ExtResource("4_qumfl")]
+position = Vector2(128, 127)
+
+[node name="MovableObject3" parent="." instance=ExtResource("4_qumfl")]
+position = Vector2(147, 130)

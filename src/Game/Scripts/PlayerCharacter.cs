@@ -28,9 +28,9 @@ public partial class PlayerCharacter : CharacterBody2D
         for (var i = 0; i < GetSlideCollisionCount(); i++)
         {
             var collision = GetSlideCollision(i);
-            if (collision.GetCollider() is RigidBody2D body)
+            if (collision.GetCollider() is MovableObject obj)
             {
-                body.ApplyForce(-100 * collision.GetNormal());
+                obj.ApplyImpact(Velocity);
             }
         }
     }
