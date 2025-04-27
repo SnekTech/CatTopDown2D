@@ -15,6 +15,8 @@ public partial class Detector : Area2D
     [Node]
     private Sprite2D sprite2D = null!;
 
+    private int objectCount;
+
     public override void _Notification(int what)
     {
         if (what == NotificationSceneInstantiated)
@@ -31,11 +33,20 @@ public partial class Detector : Area2D
 
     private void OnBodyEntered(Node2D node)
     {
-        sprite2D.Modulate = validColor;
+        if (objectCount == 0)
+        {
+            sprite2D.Modulate = validColor;
+        }
+
+        objectCount++;
     }
 
     private void OnBodyExited(Node2D node)
     {
-        sprite2D.Modulate = invalidColor;
+        objectCount--;
+        if (objectCount == 0)
+        {
+            sprite2D.Modulate = invalidColor;
+        }
     }
 }
