@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4k5x6j01bc27"]
+[gd_scene load_steps=6 format=3 uid="uid://d4k5x6j01bc27"]
+
+[ext_resource type="Script" uid="uid://srlu66wr2e6q" path="res://Scripts/Detector.cs" id="1_xecfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71hj3"]
 size = Vector2(12, 12)
@@ -19,6 +21,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="Detector" type="Area2D"]
+script = ExtResource("1_xecfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_71hj3")
